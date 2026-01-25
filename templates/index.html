@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ASD2CSV</title>
+
+  <!-- Minimal inline fallback styling (full styling goes in static/style.css) -->
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+
+<body>
+  <div class="page">
+    <header class="header">
+      <h1>ASD2CSV</h1>
+      <p class="subtitle">Convert ASD spectra to CSV and merge CSV files.</p>
+    </header>
+
+    <!-- =========================
+         CONVERT SECTION
+    ========================== -->
+    <section class="card">
+      <h2>Convert ASD file(s) to CSV</h2>
+      <p class="hint">Select one or more <strong>.asd</strong> files. Output CSV files will be saved in the app’s <code>output</code> folder.</p>
+
+      <div id="convertDrop" class="dropzone" aria-label="Drop ASD files here">
+        <div class="dropzone-inner">
+          <div class="drop-title">Drag &amp; drop ASD files here</div>
+          <div class="drop-subtitle">or</div>
+
+          <label class="file-btn">
+            Choose ASD files
+            <input id="convertInput" type="file" accept=".asd" multiple />
+          </label>
+        </div>
+      </div>
+
+      <div class="row">
+        <button id="convertBtn" class="primary" type="button" disabled>Convert</button>
+        <div class="meta">
+          <span id="convertSelected" class="meta-text"></span>
+        </div>
+      </div>
+
+      <div class="progress-wrap" aria-label="Convert progress">
+        <div id="convertProgress" class="progress-bar"></div>
+      </div>
+
+      <div id="convertStatus" class="status"></div>
+    </section>
+
+    <!-- =========================
+         MERGE SECTION
+    ========================== -->
+    <section class="card">
+      <h2>Merge CSV files</h2>
+      <p class="hint">Select <strong>two or more</strong> <strong>.csv</strong> files. The merged file will be saved as <code>output/merged_spectra.csv</code>.</p>
+
+      <div id="mergeDrop" class="dropzone" aria-label="Drop CSV files here">
+        <div class="dropzone-inner">
+          <div class="drop-title">Drag &amp; drop CSV files here</div>
+          <div class="drop-subtitle">or</div>
+
+          <label class="file-btn">
+            Choose CSV files
+            <input id="mergeInput" type="file" accept=".csv" multiple />
+          </label>
+        </div>
+      </div>
+
+      <div class="row">
+        <button id="mergeBtn" class="primary" type="button" disabled>Merge</button>
+        <div class="meta">
+          <span id="mergeSelected" class="meta-text"></span>
+        </div>
+      </div>
+
+      <div class="progress-wrap" aria-label="Merge progress">
+        <div id="mergeProgress" class="progress-bar"></div>
+      </div>
+
+      <div id="mergeStatus" class="status"></div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-left">
+        <span class="muted">Output folder:</span>
+        <span id="outputPath" class="mono muted">loading…</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
