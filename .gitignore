@@ -1,8 +1,25 @@
-.venv/
+# Python
 __pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# PyInstaller
 build/
 dist/
 dist_installer/
 *.spec
+
+# App output / data
 output/
+*.asd
+*.csv
+
+# OS/editor
 .DS_Store
+.vscode/
+.idea/
