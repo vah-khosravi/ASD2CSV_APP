@@ -1,91 +1,111 @@
-Apache License
-Version 2.0, January 2004
-http://www.apache.org/licenses/
+# ASD2CSV
 
-TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+ASD2CSV is a cross-platform desktop application for converting **ASD spectrometer `.asd` files to `.csv` format** and **merging multiple CSV spectra into a single file** using a clean, browser-based graphical interface.
 
-1. Definitions.
+The app runs locally on your machine and opens automatically in your default web browser.
 
-   "License" shall mean the terms and conditions for use, reproduction,
-   and distribution as defined by Sections 1 through 9 of this document.
+---
 
-   "Licensor" shall mean the copyright owner or entity authorized by the
-   copyright owner that is granting the License.
+## Features
 
-   "Legal Entity" shall mean the union of the acting entity and all
-   other entities that control, are controlled by, or are under common
-   control with that entity.
+- Convert one or more `.asd` files to `.csv`
+- Batch conversion of entire folders
+- Merge multiple `.csv` files into one combined file
+- Automatic output folder creation
+- Clean and minimal graphical interface
+- macOS and Windows installers
 
-   "You" (or "Your") shall mean an individual or Legal Entity
-   exercising permissions granted by this License.
+---
 
-   "Source" form shall mean the preferred form for making modifications,
-   including but not limited to software source code, documentation
-   source, and configuration files.
+## Installation
 
-   "Object" form shall mean any form resulting from mechanical
-   transformation or translation of a Source form, including but
-   not limited to compiled object code, generated documentation,
-   and conversions to other media types.
+### macOS
+1. Download `ASD2CSV.dmg` from the **Releases** page
+2. Open it
+3. Drag **ASD2CSV** into **Applications**
+4. Launch the app — your browser will open automatically
 
-   "Work" shall mean the work of authorship, whether in Source or
-   Object form, made available under the License.
+### Windows
+1. Download `ASD2CSV_Setup.exe` from the **Releases** page
+2. Run the installer
+3. Launch ASD2CSV from the Start Menu
 
-   "Derivative Works" shall mean any work, whether in Source or Object
-   form, that is based on (or derived from) the Work.
+---
 
-2. Grant of Copyright License.
+## Usage
 
-   Subject to the terms and conditions of this License, each Contributor
-   hereby grants to You a perpetual, worldwide, non-exclusive, no-charge,
-   royalty-free, irrevocable copyright license to reproduce, prepare
-   Derivative Works of, publicly display, publicly perform, sublicense,
-   and distribute the Work.
+### Convert ASD Files
+1. Click **Convert ASD file(s) to CSV**
+2. Select one or more `.asd` files
+3. Converted `.csv` files will be saved in the `output/` folder
 
-3. Grant of Patent License.
+### Merge CSV Files
+1. Click **Merge CSV Files**
+2. Select two or more `.csv` files
+3. A merged file named `merged_spectra.csv` will be created in the `output/` folder
 
-   Each Contributor grants You a perpetual, worldwide, non-exclusive,
-   no-charge, royalty-free, irrevocable patent license to make, use,
-   sell, and distribute the Work.
+---
 
-4. Redistribution.
+## Development Setup
 
-   You may reproduce and distribute copies of the Work provided that:
-   - You include this License
-   - You state significant changes made to the Work
-   - You retain copyright notices
+### Requirements
+- Python 3.9+
+- pip
 
-5. Submission of Contributions.
+### Setup
 
-   Contributions submitted shall be licensed under the same terms.
+```bash
+python -m venv .venv
+source .venv/bin/activate  # macOS/Linux
+# OR
+.venv\Scripts\activate    # Windows
 
-6. Trademarks.
+pip install -r requirements.txt
+python asd2csv_app.py
+```
 
-   This License does not grant permission to use trademarks or branding.
+---
 
-7. Disclaimer of Warranty.
+## Project Structure
 
-   The Work is provided "AS IS", without warranties or conditions of any kind.
+```text
+asd2csv_app/
+├── asd2csv_app.py
+├── asd_reader.py
+├── csv_merger.py
+├── requirements.txt
+├── templates/
+│   └── index.html
+├── static/
+│   ├── app.js
+│   └── style.css
+├── assets/
+│   └── icon.png
+├── LICENSE
+└── README.md
+```
 
-8. Limitation of Liability.
+---
 
-   In no event shall any Contributor be liable for damages arising from use
-   of the Work.
+## License
 
-9. Accepting Warranty or Additional Liability.
+This project is licensed under the **Apache License 2.0**.
 
-   You may offer warranty or liability only on Your own behalf.
+You may:
+- Use the software commercially
+- Modify and distribute the source code
+- Include it in proprietary or open-source projects
 
-END OF TERMS AND CONDITIONS
+You must:
+- Include the original license in redistributions
+- State significant changes made to the code
 
-Copyright 2026 Vahid
+See the full license text in the [`LICENSE`](LICENSE) file.
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+---
 
-    http://www.apache.org/licenses/LICENSE-2.0
+## Credits
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND.
+ASD file parsing and conversion logic is based on publicly available ASD binary format specifications and adapted for this application.
+
+Developed and maintained by **Vahid Khosravi**.
