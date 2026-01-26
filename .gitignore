@@ -1,25 +1,55 @@
+# ========================
 # Python
+# ========================
 __pycache__/
 *.py[cod]
 *.pyo
+*.pyd
+*.so
+*.egg-info/
+dist/
+build/
 
-# Virtual environments
+# ========================
+# Virtual Environments
+# ========================
 .venv/
 venv/
 env/
 
+# ========================
 # PyInstaller
-build/
-dist/
-dist_installer/
+# ========================
 *.spec
 
-# App output / data
-output/
-*.asd
-*.csv
-
-# OS/editor
+# ========================
+# macOS
+# ========================
 .DS_Store
+.AppleDouble
+.LSOverride
+
+# ========================
+# Windows
+# ========================
+Thumbs.db
+Desktop.ini
+
+# ========================
+# IDEs / Editors
+# ========================
 .vscode/
 .idea/
+
+# ========================
+# App Output
+# ========================
+output/
+*.csv
+
+# ========================
+# Installers / Packages
+# ========================
+*.dmg
+*.exe
+*.msi
