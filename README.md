@@ -1,6 +1,6 @@
 # ASD2CSV
 
-[![Release](https://img.shields.io/github/v/release/YOUR_USERNAME/YOUR_REPO)](https://github.com/YOUR_USERNAME/YOUR_REPO/releases)
+[![Release](https://img.shields.io/github/v/release/https://github.com/vah-khosravi/ASD2CSV_APP.git)
 
 
 ASD2CSV is a cross-platform desktop application for converting **ASD spectrometer `.asd` files to `.csv` format** and **merging multiple CSV spectra into a single file** using a clean, browser-based graphical interface.
