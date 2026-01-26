@@ -3,9 +3,9 @@
 ![LICENSE](https://img.shields.io/github/license/vah-khosravi/ASD2CSV_APP)
 ![Stars](https://img.shields.io/github/stars/vah-khosravi/ASD2CSV_APP?style=social)
 
-# ASD2CSV
+# ASD2CSV_APP
 
-ASD2CSV is a cross-platform desktop application for converting **ASD spectrometer `.asd` files to `.csv` format** and **merging multiple CSV files into a single file** using a clean, browser-based graphical interface.
+ASD2CSV_APP is a cross-platform desktop application for converting **ASD spectrometer `.asd` files to `.csv` format** and **merging multiple CSV files into a single file** using a clean, browser-based graphical interface.
 
 The app runs locally on your machine and opens in your default web browser.
 
