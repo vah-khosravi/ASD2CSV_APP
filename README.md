@@ -5,7 +5,7 @@
 
 # ASD2CSV
 
-ASD2CSV is a cross-platform desktop application for converting **ASD spectrometer `.asd` files to `.csv` format** and **merging multiple CSV spectra into a single file** using a clean, browser-based graphical interface.
+ASD2CSV is a cross-platform desktop application for converting **ASD spectrometer `.asd` files to `.csv` format** and **merging multiple CSV files into a single file** using a clean, browser-based graphical interface.
 
 The app runs locally on your machine and opens in your default web browser.
 

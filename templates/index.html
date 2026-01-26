@@ -21,7 +21,7 @@
     ========================== -->
     <section class="card">
       <h2>Convert ASD file(s) to CSV</h2>
-      <p class="hint">Select one or more <strong>.asd</strong> files. Output CSV files will be saved in the app’s <code>output</code> folder.</p>
+      <p class="hint">Select one or more <strong>.asd</strong> files. Output CSV files will be saved in the <code>output</code> folder in your Documents.</p>
 
       <div id="convertDrop" class="dropzone" aria-label="Drop ASD files here">
         <div class="dropzone-inner">
@@ -44,6 +44,7 @@
 
       <div class="progress-wrap" aria-label="Convert progress">
         <div id="convertProgress" class="progress-bar"></div>
+        <div class="output-path" id="convertOutputPath"></div>
       </div>
 
       <div id="convertStatus" class="status"></div>
@@ -54,7 +55,7 @@
     ========================== -->
     <section class="card">
       <h2>Merge CSV files</h2>
-      <p class="hint">Select <strong>two or more</strong> <strong>.csv</strong> files. The merged file will be saved as <code>output/merged_spectra.csv</code>.</p>
+      <p class="hint">Select <strong>two or more</strong> <strong>.csv</strong> files. The merged file will be saved as <code>merged_spectra.csv</code>.</p>
 
       <div id="mergeDrop" class="dropzone" aria-label="Drop CSV files here">
         <div class="dropzone-inner">
