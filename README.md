@@ -1,6 +1,6 @@
 ![Release](https://img.shields.io/github/v/release/vah-khosravi/ASD2CSV_APP)
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS-blue)
-![License](https://img.shields.io/github/license/vah-khosravi/ASD2CSV_APP)
+![LICENSE](https://img.shields.io/github/license/vah-khosravi/ASD2CSV_APP)
 ![Stars](https://img.shields.io/github/stars/vah-khosravi/ASD2CSV_APP?style=social)
 
 # ASD2CSV
