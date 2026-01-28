@@ -7,15 +7,13 @@
 
 ASD2CSV_APP is a cross-platform desktop application for converting **ASD spectrometer `.asd` files to `.csv` format** and **merging multiple CSV files into a single file** using a clean, browser-based graphical interface.
 
-The app runs locally on your machine and opens in your default web browser.
-
+The app runs locally on your computer and opens in your default web browser.
 ---
 
 ## Features
 
 - Convert one or more `.asd` files to `.csv`
-- Batch conversion of entire folders
-- Merge multiple `.csv` files into one combined file
+- Merge multiple `.csv` files into one combined `.csv` file
 - Automatic `output/` folder creation
 - Clean and minimal graphical interface
 - macOS and Windows installers (via GitHub Releases)
@@ -37,7 +35,7 @@ The app runs locally on your machine and opens in your default web browser.
 
 ---
 
-## Run from Source (CLI / Developer Mode)
+## Run from Source (Developer Mode)
 
 This mode is for users who want to run the application directly from the source code (no `.dmg` / `.exe`).
 
@@ -77,7 +75,7 @@ pip install -r requirements.txt
 python asd2csv_app.py
 ```
 
-Open in your browser:
+Opens in your browser:
 ```
 http://127.0.0.1:5000
 ```
@@ -89,32 +87,54 @@ http://127.0.0.1:5000
 ### Convert ASD Files
 1. In the app, click **Convert ASD file(s) to CSV**
 2. Select one or more `.asd` files
-3. Converted `.csv` files will be saved in the `output/` folder
+3. Converted `.csv` files will be saved in the `output/` folder in the user's documents folder. The output folder path can be found below the application tab.
 
 ### Merge CSV Files
 1. Click **Merge CSV Files**
 2. Select **two or more** `.csv` files
-3. A merged file named `merged_spectra.csv` will be created in the `output/` folder
+3. A merged file named `merged_spectra.csv` will be created in the `output/` folder in the user's documents folder. The output folder path can be found below the application tab.
 
 ---
 
-## Command-line (Optional)
+## Command Line Tools (Optional / Power Users)
 
-If you prefer scripts without the browser UI:
+If you prefer working in the terminal instead of the browser-based app, you can use the provided CLI tools for single-file conversion, batch processing, and CSV merging.
 
-### Convert one ASD file
+### Convert a single ASD file
+
+**macOS / Linux / Git Bash**
 ```bash
-python asd_reader.py Data/Spectrum00001.asd output/Spectrum00001.csv
+python3 cli_convert.py Data/Spectrum00001.asd output
+```
+**Windows PowerShell / CMD**
+```powershell
+python cli_convert.py Data\Spectrum00001.asd output
 ```
 
 ### Batch convert all ASD files in a folder
+
+**macOS / Linux / Git Bash**
 ```bash
-python batch_convert.py Data output
+python3 cli_convert.py Data output
 ```
 
-### Merge all CSV files in a folder
+**Windows PowerShell / CMD**
+```powershell
+python cli_convert.py Data output
+```
+### Merge all CSV files into one CSV file
+
+This will merge all .csv files from the output folder into a single file named merged_spectra.csv and save it in the same output folder.
+
+**macOS / Linux / Git Bash**
+
 ```bash
-python csv_merger.py output
+python3 cli_merge.py output output/merged_spectra.csv
+```
+
+**Windows PowerShell / CMD**
+```powershell
+python cli_merge.py output output\merged_spectra.csv
 ```
 
 ---
@@ -126,7 +146,8 @@ ASD2CSV_APP/
 ├── asd2csv_app.py
 ├── asd_reader.py
 ├── csv_merger.py
-├── batch_convert.py
+├── cli_convert.py
+├── cli_merge.py
 ├── requirements.txt
 ├── templates/
 │   └── index.html
@@ -173,4 +194,4 @@ If you use **ASD2CSV** in academic work, publications, or research, please cite 
 
 ASD file parsing and conversion logic is based on publicly available ASD binary format specifications and adapted for this application.
 
-Developed and maintained by **Vahid**.
+Developed and maintained by **Vahid Khosravi**.
