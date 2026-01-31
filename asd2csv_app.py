@@ -7,6 +7,7 @@ import shutil
 import threading
 import time
 import webbrowser
+import socket
 import tempfile
 from pathlib import Path
 
@@ -48,6 +49,23 @@ app = Flask(
 # ----------------------------
 # Helpers
 # ----------------------------
+def pick_free_port(preferred: int = 5000) -> int:
+    """
+    Pick a free localhost port.
+    Tries preferred first (5000), then a few fallbacks, then asks OS for any free port.
+    This prevents the "works only after reboot" problem when port 5000 is still taken.
+    """
+    for port in (preferred, 5001, 5002, 5003, 0):
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+            try:
+                s.bind(("127.0.0.1", port))
+                return s.getsockname()[1]
+            except OSError:
+                continue
+    return preferred
+
+
 def _safe_clear_temp() -> None:
     """Delete all temporary uploaded files/folders."""
     if not TEMP_DIR.exists():
@@ -93,6 +111,10 @@ def _sanitize_filename(name: str) -> str:
 @app.get("/")
 def index():
     return render_template("index.html")
+
+@app.get("/health")
+def health():
+    return "ok", 200
 
 
 @app.get("/output-info")
@@ -199,9 +221,27 @@ def merge_csv():
 # ----------------------------
 # Entrypoint
 # ----------------------------
+def _server_is_running(port: int) -> bool:
+    """Return True if something responds on /health on this port."""
+    try:
+        with socket.create_connection(("127.0.0.1", port), timeout=0.35) as sock:
+            req = b"GET /health HTTP/1.1\r\nHost: 127.0.0.1\r\nConnection: close\r\n\r\n"
+            sock.sendall(req)
+            data = sock.recv(256)
+        return b"200" in data
+    except Exception:
+        return False
+
+
 if __name__ == "__main__":
-    # If port 5000 is used on your system, change it here:
-    port = 5000
+    # Try preferred ports in order. If already running, just open browser and exit.
+    for p in (5000, 5001, 5002, 5003):
+        if _server_is_running(p):
+            webbrowser.open(f"http://127.0.0.1:{p}")
+            raise SystemExit(0)
+
+    # Otherwise start a new server on a free port
+    port = pick_free_port(5000)
     url = f"http://127.0.0.1:{port}"
 
     threading.Thread(target=_open_browser_later, args=(url,), daemon=True).start()
