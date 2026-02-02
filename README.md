@@ -101,6 +101,7 @@ http://127.0.0.1:5000
 If you prefer working in the terminal instead of the browser-based app, you can use the provided CLI tools for single-file conversion, batch processing, and CSV merging.
 
 ### Convert a single ASD file
+This will convert one .asd file within the Data folder into .csv and save it into the Output folder.
 
 **macOS / Linux / Git Bash**
 ```bash
@@ -112,6 +113,7 @@ python cli_convert.py Data\Spectrum00001.asd output
 ```
 
 ### Batch convert all ASD files in a folder
+This will convert all .asd files within the Data folder into .csv files and save them into the Output folder.
 
 **macOS / Linux / Git Bash**
 ```bash
