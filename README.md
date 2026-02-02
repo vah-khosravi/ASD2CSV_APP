@@ -87,12 +87,12 @@ http://127.0.0.1:5000
 ### Convert ASD Files
 1. In the app, click **Convert ASD file(s) to CSV**
 2. Select one or more `.asd` files
-3. Converted `.csv` files will be saved in the `output/` folder in the user's documents folder. The output folder path can be found below the application tab.
+3. Converted `.csv` files will be saved in the `output/` folder in the user's documents folder. The `output/` folder path can be found below the application tab.
 
 ### Merge CSV Files
 1. Click **Merge CSV Files**
 2. Select **two or more** `.csv` files
-3. A merged file named `merged_spectra.csv` will be created in the `output/` folder in the user's documents folder. The output folder path can be found below the application tab.
+3. A merged file named `merged_spectra.csv` will be created in the `output/` folder in the user's documents folder. The `output/` folder path can be found below the application tab.
 
 ---
 
@@ -101,7 +101,7 @@ http://127.0.0.1:5000
 If you prefer working in the terminal instead of the browser-based app, you can use the provided CLI tools for single-file conversion, batch processing, and CSV merging.
 
 ### Convert a single ASD file
-This will convert one .asd file within the Data folder into .csv and save it into the Output folder.
+This will convert one .asd file within the `Data/` folder into .csv and save it into the `output/` folder.
 
 **macOS / Linux / Git Bash**
 ```bash
@@ -113,7 +113,7 @@ python cli_convert.py Data\Spectrum00001.asd output
 ```
 
 ### Batch convert all ASD files in a folder
-This will convert all .asd files within the Data folder into .csv files and save them into the Output folder.
+This will convert all .asd files within the `Data/` folder into .csv files and save them into the `output/` folder.
 
 **macOS / Linux / Git Bash**
 ```bash
@@ -126,7 +126,7 @@ python cli_convert.py Data output
 ```
 ### Merge all CSV files into one CSV file
 
-This will merge all .csv files from the output folder into a single file named merged_spectra.csv and save it in the same output folder.
+This will merge all .csv files within the `output/` folder into a single file named merged_spectra.csv and save it in the same `output/` folder.
 
 **macOS / Linux / Git Bash**
 
